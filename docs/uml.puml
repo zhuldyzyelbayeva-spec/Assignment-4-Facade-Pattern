@@ -1,0 +1,34 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Main
+class OrderFacade {
+  +OrderFacade()
+  +placeOrder(cart: Cart, customer: Customer): String
+  +availableStock(productId: String): int
+}
+class InventoryService {
+  +reserve(cart: Cart): void
+  +release(cart: Cart): void
+  +available(productId: String): int
+}
+class PaymentProcessor {
+  +charge(customer: Customer, amount: int): String
+  +refund(paymentId: String): void
+}
+class ShippingService {
+  +schedule(customer: Customer, cart: Cart): String
+  +cancel(shipmentId: String): void
+}
+class NotificationService {
+  +sendConfirmation(customer: Customer, orderId: String): void
+}
+class Cart
+class Customer
+Main --> OrderFacade : uses
+OrderFacade --> InventoryService
+OrderFacade --> PaymentProcessor
+OrderFacade --> ShippingService
+OrderFacade --> NotificationService
+OrderFacade ..> Cart
+OrderFacade ..> Customer
+@enduml
