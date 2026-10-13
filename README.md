@@ -20,5 +20,3 @@ java -cp out com.example.orders.FacadeTest
 - `docs/uml_preview.png`: UML image
 - `Facade_Report.docx`: example report with UML and explanations
 
-## Note
-This is a teaching example: payment and shipping are simulated. Rollback is best-effort and there is no database. Add your name, group and GitHub URL to the report after publishing.
